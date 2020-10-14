@@ -46,9 +46,9 @@ module source(/*AUTOARG*/
    input                       ready;
 
    // For waiting phases
-   int                         clkcount;
+   integer                         clkcount;
    // State variable
-   int                         state;
+   integer                        state;
 
    // The state machine is triggered on the positive edge
    always @(posedge clk) begin
@@ -99,7 +99,7 @@ module source(/*AUTOARG*/
    always @(negedge clk) begin
       // Default values
       valid <= 0;
-      flit <= 'x;
+      flit <= 1'bx;
 
       case (state)
         1: begin
@@ -136,9 +136,9 @@ module sink(/*AUTOARG*/
    output reg             ready;
 
    // Clock counting variable
-   int                         clkcount;
+   integer                         clkcount;
    // The state
-   int                         state;
+   integer                        state;
 
    // The state machine is triggered on the positive edge
    always @(posedge clk) begin
